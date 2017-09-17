@@ -14,9 +14,14 @@ class CreateCommentsTable extends Migration
     public function up()
     {
         Schema::create('comments', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');
+            $table->integer('entry_id', false, true);
+            $table->string('name', 85)->nullable()->comment('名前');
+            $table->text('comment')->comment('コメント');
             $table->timestamps();
         });
+        DB::statement('ALTER TABLE comments COMMENT \'コメント\'');
     }
 
     /**
