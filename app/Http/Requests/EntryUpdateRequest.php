@@ -13,7 +13,7 @@ class EntryUpdateRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,8 +23,10 @@ class EntryUpdateRequest extends FormRequest
      */
     public function rules()
     {
+        $id = $this->route()->parameter('id');
         return [
-            //
+            'title' => 'required|max:255|unique:entries,title,' . $id,
+            'body' => 'required'
         ];
     }
 }

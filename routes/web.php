@@ -23,3 +23,10 @@ Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 Route::post('register', 'Auth\RegisterController@register');
+
+Route::get('admin/entry', 'Admin\EntryController@index')->name('admin.entry');
+Route::get('admin/entry/index', 'Admin\EntryController@index')->name('admin.entry.index');
+Route::get('admin/entry/create', 'Admin\EntryController@create')->name('admin.entry.create');
+Route::post('admin/entry/store', 'Admin\EntryController@store')->name('admin.entry.store');
+Route::get('admin/entry/edit/{id}', 'Admin\EntryController@edit')->name('admin.entry.edit');
+Route::put('admin/entry/update/{id}', 'Admin\EntryController@update')->name('admin.entry.update');
