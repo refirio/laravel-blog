@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\DataAccess\Cache\DataCache;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -29,7 +30,12 @@ class AppServiceProvider extends ServiceProvider
         );
         $this->app->bind(
             \App\Repositories\EntryRepositoryInterface::class,
-            \App\Repositories\EntryRepository::class
+            function ($app) {
+                return new \App\Repositories\EntryRepository(
+                    new \App\DataAccess\Eloquent\Entry,
+                    new DataCache($app['cache'], 'entry', 60)
+                );
+            }
         );
     }
 }
