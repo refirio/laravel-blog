@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\DataAccess\Eloquent\User;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRegisterRequest;
+use App\Services\UserService;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller
@@ -45,30 +45,16 @@ class RegisterController extends Controller
      * Handle a registration request for the application.
      *
      * @param  UserRegisterRequest  $request
+     * @param  UserService          $user
      * @return \Illuminate\Http\Response
      */
-    public function register(UserRegisterRequest $request)
+    public function register(UserRegisterRequest $request, UserService $user)
     {
-        event(new Registered($user = $this->create($request->all())));
+        event(new Registered($registeredUser = $user->registerUser($request->all())));
 
-        $this->guard()->login($user);
+        $this->guard()->login($registeredUser);
 
-        return $this->registered($request, $user)
+        return $this->registered($request, $registeredUser)
                         ?: redirect($this->redirectPath());
-    }
-
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\DataAccess\Eloquent\User
-     */
-    protected function create(array $data)
-    {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-        ]);
     }
 }
