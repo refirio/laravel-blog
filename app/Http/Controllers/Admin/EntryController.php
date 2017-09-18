@@ -29,14 +29,13 @@ class EntryController extends Controller
     /**
      * 記事一覧
      *
-     * @param Request $request
      * @return \Illuminate\View\View
      */
-    public function index(Request $request)
+    public function index()
     {
-        $result = $this->entry->getByPage($request->get('page', 1), 20);
+        $entries = $this->entry->getByPage(10);
 
-        return view('admin.entry.index', ['page' => $result]);
+        return view('admin.entry.index', ['entries' => $entries]);
     }
 
     /**

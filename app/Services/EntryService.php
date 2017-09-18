@@ -31,14 +31,13 @@ class EntryService
     }
 
     /**
-     * @param int $page
      * @param int $limit
      *
      * @return mixed|\StdClass
      */
-    public function getByPage($page = 1, $limit = 20)
+    public function getByPage($limit = 10)
     {
-        return $this->entry->byPage($page, $limit);
+        return $this->entry->byPage($limit);
     }
 
     /**

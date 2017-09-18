@@ -17,16 +17,13 @@ class Entry extends Model
 
     /**
      * @param $limit
-     * @param $page
      *
      * @return mixed
      */
-    public function byPage($limit, $page)
+    public function byPage($limit)
     {
         return $this->query()
             ->orderBy('created_at', 'desc')
-            ->skip($limit * ($page - 1))
-            ->take($limit)
-            ->get();
+            ->paginate($limit);
     }
 }

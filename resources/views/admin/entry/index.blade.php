@@ -26,7 +26,7 @@
                             <th>本文</th>
                             <th></th>
                         </tr>
-                        @forelse($page as $row)
+                        @forelse($entries as $row)
                         <tr>
                             <td>{{{ $row->title }}}</td>
                             <td>{{{ mb_strimwidth(strip_tags($row->body), 0, 30, "...") }}}</td>
@@ -38,6 +38,7 @@
                         </tr>
                         @endforelse
                     </table>
+                    {{ $entries->render() }}
                 </div>
             </div>
         </div>

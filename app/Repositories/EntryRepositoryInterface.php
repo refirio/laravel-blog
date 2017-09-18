@@ -27,10 +27,9 @@ interface EntryRepositoryInterface
     public function count();
 
     /**
-     * @param int $page
      * @param int $limit
      *
      * @return mixed
      */
-    public function byPage($page = 1, $limit = 20);
+    public function byPage($limit = 10);
 }

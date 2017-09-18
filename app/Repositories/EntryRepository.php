@@ -57,8 +57,8 @@ class EntryRepository implements EntryRepositoryInterface
      *
      * @return mixed
      */
-    public function byPage($page = 1, $limit = 20)
+    public function byPage($limit = 10)
     {
-        return $this->eloquent->byPage($limit, $page);
+        return $this->eloquent->byPage($limit);
     }
 }
