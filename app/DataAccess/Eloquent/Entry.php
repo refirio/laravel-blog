@@ -29,4 +29,17 @@ class Entry extends Model
             ->orderBy('created_at', 'desc')
             ->paginate($limit);
     }
+
+    /**
+     * @param $limit
+     *
+     * @return mixed
+     */
+    public function recent($limit)
+    {
+        return $this->query()
+            ->orderBy('created_at', 'desc')
+            ->take($limit)
+            ->get();
+    }
 }

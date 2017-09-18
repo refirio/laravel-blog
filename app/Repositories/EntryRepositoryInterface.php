@@ -32,4 +32,11 @@ interface EntryRepositoryInterface
      * @return mixed
      */
     public function byPage($limit = 10);
+
+    /**
+     * @param int $limit
+     *
+     * @return mixed
+     */
+    public function recent($limit = 10);
 }

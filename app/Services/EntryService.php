@@ -41,6 +41,16 @@ class EntryService
     }
 
     /**
+     * @param int $limit
+     *
+     * @return mixed|\StdClass
+     */
+    public function getRecent($limit = 10)
+    {
+        return $this->entry->recent($limit);
+    }
+
+    /**
      * @param $id
      *
      * @return mixed

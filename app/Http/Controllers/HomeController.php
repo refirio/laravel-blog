@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Services\EntryService;
 
 class HomeController extends Controller
 {
@@ -19,10 +20,13 @@ class HomeController extends Controller
     /**
      * Show the application dashboard.
      *
+     * @param EntryService $entry
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(EntryService $entry)
     {
-        return view('home');
+        $entries = $entry->getRecent(3);
+
+        return view('home', ['entries' => $entries]);
     }
 }

@@ -61,4 +61,14 @@ class EntryRepository implements EntryRepositoryInterface
     {
         return $this->eloquent->byPage($limit);
     }
+
+    /**
+     * @param int $limit
+     *
+     * @return mixed
+     */
+    public function recent($limit = 10)
+    {
+        return $this->eloquent->recent($limit);
+    }
 }
