@@ -7,7 +7,7 @@ use Illuminate\Database\Migrations\Migration;
 class AlterCommentsTable extends Migration
 {
     /**
-     * Run the migrations.
+     * マイグレーション実行
      *
      * @return void
      */
@@ -19,7 +19,7 @@ class AlterCommentsTable extends Migration
     }
 
     /**
-     * Reverse the migrations.
+     * マイグレーションを戻す
      *
      * @return void
      */

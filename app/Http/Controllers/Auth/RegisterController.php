@@ -13,26 +13,26 @@ class RegisterController extends Controller
 {
     /*
     |--------------------------------------------------------------------------
-    | Register Controller
+    | ユーザ登録コントローラ
     |--------------------------------------------------------------------------
     |
-    | This controller handles the registration of new users as well as their
-    | validation and creation. By default this controller uses a trait to
-    | provide this functionality without requiring any additional code.
+    | このコントローラは新しいユーザの登録、バリデーション、生成を処理する。
+    | デフォルトで、このコントローラはトレイトを使用しており、これにより
+    | 他のコードを追加せずとも、この機能を提供している。
     |
     */
 
     use RegistersUsers;
 
     /**
-     * Where to redirect users after registration.
+     * 登録後のユーザリダイレクト先
      *
      * @var string
      */
     protected $redirectTo = '/home';
 
     /**
-     * Create a new controller instance.
+     * 新しいコントローラインスタンスの生成
      *
      * @return void
      */
