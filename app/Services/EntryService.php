@@ -41,7 +41,7 @@ class EntryService
      *
      * @return mixed|\StdClass
      */
-    public function getByPage($limit = 10)
+    public function getEntriesByPage($limit = 10)
     {
         return $this->entry->byPage($limit);
     }
@@ -51,7 +51,7 @@ class EntryService
      *
      * @return mixed|\StdClass
      */
-    public function getRecent($limit = 10)
+    public function getRecentEntries($limit = 10)
     {
         return $this->entry->recent($limit);
     }

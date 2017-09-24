@@ -33,7 +33,7 @@ class EntryController extends Controller
      */
     public function index()
     {
-        $entries = $this->entry->getByPage(10);
+        $entries = $this->entry->getEntriesByPage(10);
 
         return view('admin.entry.index', ['entries' => $entries]);
     }

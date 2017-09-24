@@ -25,7 +25,7 @@ class HomeController extends Controller
      */
     public function index(EntryService $entry)
     {
-        $entries = $entry->getRecent(3);
+        $entries = $entry->getRecentEntries(3);
 
         return view('home', ['entries' => $entries]);
     }
