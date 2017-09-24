@@ -50,7 +50,7 @@ class RegisterController extends Controller
      */
     public function register(UserRegisterRequest $request, UserService $user)
     {
-        event(new Registered($registeredUser = $user->registerUser($request->all())));
+        event(new Registered($registeredUser = $user->postUser($request->all())));
 
         $this->guard()->login($registeredUser);
 

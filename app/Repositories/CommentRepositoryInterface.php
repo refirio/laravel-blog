@@ -19,5 +19,5 @@ interface CommentRepositoryInterface
      *
      * @return mixed
      */
-    public function getAllByEntryId($id);
+    public function allByEntryId($id);
 }

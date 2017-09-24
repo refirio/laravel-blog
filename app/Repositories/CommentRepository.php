@@ -41,8 +41,8 @@ class CommentRepository implements CommentRepositoryInterface
      *
      * @return mixed
      */
-    public function getAllByEntryId($id)
+    public function allByEntryId($id)
     {
-        return $this->eloquent->getAllByEntryId($id);
+        return $this->eloquent->allByEntryId($id);
     }
 }

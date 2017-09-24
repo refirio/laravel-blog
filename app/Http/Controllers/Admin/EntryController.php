@@ -60,7 +60,7 @@ class EntryController extends Controller
 
         $input = $request->only(['title', 'body']);
         $input['user_id'] = $user->id;
-        $this->entry->addEntry($input);
+        $this->entry->postEntry($input);
 
         return redirect()->route('admin.entry.index');
     }
@@ -95,7 +95,7 @@ class EntryController extends Controller
         $input = $request->only(['title', 'body']);
         $input['user_id'] = $user->id;
         $input['id'] = $id;
-        $this->entry->addEntry($input);
+        $this->entry->postEntry($input);
 
         return redirect()->route('admin.entry.index');
     }

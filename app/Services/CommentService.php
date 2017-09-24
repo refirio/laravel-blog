@@ -25,7 +25,7 @@ class CommentService
      *
      * @return mixed
      */
-    public function addComment(array $attributes)
+    public function postComment(array $attributes)
     {
         return $this->comment->save($attributes);
     }
@@ -37,6 +37,6 @@ class CommentService
      */
     public function getCommentsByEntry($id)
     {
-        return $this->comment->getAllByEntryId($id);
+        return $this->comment->allByEntryId($id);
     }
 }

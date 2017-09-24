@@ -25,7 +25,7 @@ class UserService
      *
      * @return \App\DataAccess\Eloquent\User
      */
-    public function registerUser(array $params)
+    public function postUser(array $params)
     {
         return $this->user->save($params);
     }

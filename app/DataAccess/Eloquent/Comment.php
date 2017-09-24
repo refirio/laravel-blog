@@ -23,7 +23,7 @@ class Comment extends Model
      *
      * @return mixed
      */
-    public function getAllByEntryId($id)
+    public function allByEntryId($id)
     {
         return $this->query()
             ->where('entry_id', $id)

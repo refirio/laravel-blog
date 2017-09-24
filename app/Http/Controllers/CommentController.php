@@ -32,7 +32,7 @@ class CommentController extends Controller
     public function store(CommentStoreRequest $request)
     {
         $input = $request->only(['entry_id', 'name', 'comment']);
-        $this->comment->addComment($input);
+        $this->comment->postComment($input);
 
         return redirect()->route('entry.index');
     }

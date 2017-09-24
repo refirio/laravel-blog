@@ -31,7 +31,7 @@ class EntryService
      *
      * @return mixed
      */
-    public function addEntry(array $attributes)
+    public function postEntry(array $attributes)
     {
         return $this->entry->save($attributes);
     }
