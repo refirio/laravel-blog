@@ -24,6 +24,10 @@ Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 Route::post('register', 'Auth\RegisterController@register');
 
+Route::get('entry', 'EntryController@index')->name('entry');
+Route::get('entry/index', 'EntryController@index')->name('entry.index');
+Route::get('entry/view/{id}', 'EntryController@view')->name('entry.view');
+
 Route::get('admin/entry', 'Admin\EntryController@index')->name('admin.entry');
 Route::get('admin/entry/index', 'Admin\EntryController@index')->name('admin.entry.index');
 Route::get('admin/entry/create', 'Admin\EntryController@create')->name('admin.entry.create');
