@@ -17,9 +17,9 @@
                         </tr>
                         @forelse($entries as $row)
                         <tr>
-                            <td>{{{ $row->title }}}</td>
-                            <td>{{{ mb_strimwidth(strip_tags($row->body), 0, 30, "...") }}}</td>
-                            <td><a href="{{{ route('entry.view', [$row->id]) }}}">詳細</a></td>
+                            <td>{{ $row->title }}</td>
+                            <td>{{ mb_strimwidth(strip_tags($row->body), 0, 50, '...') }}</td>
+                            <td><a href="{{ route('entry.view', [$row->id]) }}">詳細</a></td>
                         </tr>
                         @empty
                         <tr>

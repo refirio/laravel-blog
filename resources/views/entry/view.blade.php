@@ -10,22 +10,22 @@
                 <div class="panel-body">
                     <dl>
                         <dt>タイトル</dt>
-                        <dd>{{{ $entry->title }}}</dd>
+                        <dd>{{ $entry->title }}</dd>
                     </dl>
                     <dl>
                         <dt>本文</dt>
-                        <dd>{{{ $entry->body }}}</dd>
+                        <dd>{!! nl2br(e($entry->body)) !!}</dd>
                     </dl>
                 </div>
                 {{--  ここからは記事に対してのコメントフォームとなります --}}
                 <div class="panel-body">
-                    <form method="post" action="{{{ route('comment.store') }}}">
+                    <form method="post" action="{{ route('comment.store') }}">
                         {!! csrf_field() !!}
-                        <input type="hidden" name="entry_id" value="{{{ $entry->id }}}">
+                        <input type="hidden" name="entry_id" value="{{ $entry->id }}">
                         <div class="form-group col-md-4">
                             <label class="control-label" for="name">名前</label>
                             <input type="text" class="form-control" id="name" name="name"
-                                placeholder="名前" value="{{{ old('name') }}}">
+                                placeholder="名前" value="{{ old('name') }}">
                         </div>
                         <div class="form-group col-md-8 @if($errors->first('comment'))has-error @endif">
                             <label class="control-label" for="entry_id">コメント {{ $errors->first('comment') }}</label>
@@ -44,11 +44,11 @@
                         <div class="panel panel-primary">
                             <div class="panel-heading">
                                 <h3 class="panel-title">
-                                    {{{ $comment->name }}} / {{{ $comment->created_at }}}
+                                    {{ $comment->name }} / {{ $comment->created_at }}
                                 </h3>
                             </div>
                             <div class="panel-body word-break">
-                                {{{ $comment->comment }}}
+                                {{ $comment->comment }}
                             </div>
                         </div>
                     @endforeach

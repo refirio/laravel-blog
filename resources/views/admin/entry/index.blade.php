@@ -9,13 +9,13 @@
                 @include('elements.admin.information')
                 <div class="panel-body">
                     <div>
-                        <a href="{{{ route('admin.entry.create') }}}" class="btn btn-primary">ブログを投稿する</a>
+                        <a href="{{ route('admin.entry.create') }}" class="btn btn-primary">ブログを投稿する</a>
                     </div>
                     @if(session('message'))
                         <div class="alert alert-danger" role="alert">
                             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
                             <span class="sr-only">Error:</span>
-                            {{{ session('message') }}}
+                            {{ session('message') }}
                         </div>
                     @endif
                 </div>
@@ -28,9 +28,9 @@
                         </tr>
                         @forelse($entries as $row)
                         <tr>
-                            <td>{{{ $row->title }}}</td>
-                            <td>{{{ mb_strimwidth(strip_tags($row->body), 0, 30, "...") }}}</td>
-                            <td><a href="{{{ route('admin.entry.edit', [$row->id]) }}}">編集</a></td>
+                            <td>{{ $row->title }}</td>
+                            <td>{{ mb_strimwidth(strip_tags($row->body), 0, 50, '...') }}</td>
+                            <td><a href="{{ route('admin.entry.edit', [$row->id]) }}">編集</a></td>
                         </tr>
                         @empty
                         <tr>
