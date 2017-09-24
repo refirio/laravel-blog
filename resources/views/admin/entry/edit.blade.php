@@ -6,7 +6,7 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">ブログエントリ</div>
-
+                @include('elements.admin.information')
                 <div class="panel-body">
                     <form method="POST" action="{{{ route('admin.entry.update', [$id]) }}}">
                         {{ method_field('put') }}

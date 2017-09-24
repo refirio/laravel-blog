@@ -6,7 +6,7 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">ブログエントリ</div>
-
+                @include('elements.admin.information')
                 <div class="panel-body">
                     <div>
                         <a href="{{{ route('admin.entry.create') }}}" class="btn btn-primary">ブログを投稿する</a>
