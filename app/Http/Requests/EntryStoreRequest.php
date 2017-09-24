@@ -28,4 +28,16 @@ class EntryStoreRequest extends FormRequest
             'body' => 'required'
         ];
     }
+
+    /**
+     * Get the attributes names.
+     *
+     * @return array
+     */
+    public function attributes() {
+        return [
+            'title' => 'タイトル',
+            'body' => '本文',
+        ];
+    }
 }

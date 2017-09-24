@@ -28,4 +28,16 @@ class LoginRequest extends FormRequest
             'password' => 'required|string',
         ];
     }
+
+    /**
+     * Get the attributes names.
+     *
+     * @return array
+     */
+    public function attributes() {
+        return [
+            'email' => 'メールアドレス',
+            'password' => 'パスワード',
+        ];
+    }
 }

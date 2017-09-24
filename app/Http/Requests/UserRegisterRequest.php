@@ -29,4 +29,17 @@ class UserRegisterRequest extends FormRequest
             'password' => 'required|string|min:6|confirmed',
         ];
     }
+
+    /**
+     * Get the attributes names.
+     *
+     * @return array
+     */
+    public function attributes() {
+        return [
+            'name' => '名前',
+            'email' => 'メールアドレス',
+            'password' => 'パスワード',
+        ];
+    }
 }

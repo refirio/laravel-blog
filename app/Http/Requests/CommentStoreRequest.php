@@ -28,4 +28,16 @@ class CommentStoreRequest extends FormRequest
             'comment'  => 'required',
         ];
     }
+
+    /**
+     * Get the attributes names.
+     *
+     * @return array
+     */
+    public function attributes() {
+        return [
+            'name' => '名前',
+            'comment' => 'コメント',
+        ];
+    }
 }
