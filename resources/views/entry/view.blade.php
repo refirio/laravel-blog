@@ -20,7 +20,7 @@
                 {{--  ここからは記事に対してのコメントフォームとなります --}}
                 <div class="panel-body">
                     <form method="post" action="{{ route('comment.store') }}">
-                        {!! csrf_field() !!}
+                        {{ csrf_field() }}
                         <input type="hidden" name="entry_id" value="{{ $entry->id }}">
                         <div class="form-group col-md-4">
                             <label class="control-label" for="name">名前</label>
