@@ -14,7 +14,7 @@
                     </dl>
                     <dl>
                         <dt>本文</dt>
-                        <dd>{!! nl2br(e($entry->body)) !!}</dd>
+                        <dd>{{ $entry->body }}</dd>
                     </dl>
                 </div>
                 {{--  ここからは記事に対してのコメントフォームとなります --}}

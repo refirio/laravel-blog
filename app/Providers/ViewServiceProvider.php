@@ -14,6 +14,8 @@ class ViewServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        \Blade::setEchoFormat('nl2br(e(%s))');
+
         /** elements.admin.information 描画時に App\Composers\UserComposer の compose メソッドが実行されます */
         $this->app['view']->composer('elements.admin.information', \App\Composers\UserComposer::class);
     }
