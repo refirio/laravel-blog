@@ -30,12 +30,12 @@ Route::get('entry/view/{id}', 'EntryController@view')->name('entry.view')->where
 
 Route::post('comment', 'CommentController@store')->name('commentPost');
 
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.'], function () {
-    Route::get('', 'EntryController@index')->name('root');
-    Route::get('entry', 'EntryController@index')->name('entry');
-    Route::get('entry/index', 'EntryController@index')->name('entry.index');
-    Route::get('entry/create', 'EntryController@create')->name('entry.create');
-    Route::post('entry/store', 'EntryController@store')->name('entry.storePost');
-    Route::get('entry/edit/{id}', 'EntryController@edit')->name('entry.edit')->where('id', '[0-9]+');
-    Route::put('entry/update/{id}', 'EntryController@update')->name('entry.updatePost')->where('id', '[0-9]+')->middleware('self.entry');
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin'], function () {
+    Route::get('', 'EntryController@index')->name('');
+    Route::get('entry', 'EntryController@index')->name('.entry');
+    Route::get('entry/index', 'EntryController@index')->name('.entry.index');
+    Route::get('entry/create', 'EntryController@create')->name('.entry.create');
+    Route::post('entry/store', 'EntryController@store')->name('.entry.storePost');
+    Route::get('entry/edit/{id}', 'EntryController@edit')->name('.entry.edit')->where('id', '[0-9]+');
+    Route::put('entry/update/{id}', 'EntryController@update')->name('.entry.updatePost')->where('id', '[0-9]+')->middleware('self.entry');
 });
