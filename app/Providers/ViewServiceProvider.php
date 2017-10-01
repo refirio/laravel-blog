@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use View;
 
 /**
  * Class ViewServiceProvider
@@ -16,8 +17,8 @@ class ViewServiceProvider extends ServiceProvider
     {
         \Blade::setEchoFormat('nl2br(e(%s))');
 
-        /** elements.admin.information 描画時に App\Composers\UserComposer の compose メソッドが実行されます */
-        $this->app['view']->composer('elements.admin.information', \App\Composers\UserComposer::class);
+        // elements.admin.information 描画時に App\Composers\InformationAdminElementsComposer の compose メソッドが実行される
+        View::composer('elements.admin.information', \App\Composers\InformationAdminElementsComposer::class);
     }
 
     /**

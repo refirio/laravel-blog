@@ -7,9 +7,9 @@ use Illuminate\Contracts\Auth\Guard;
 
 /**
  *
- * Class UserComposer
+ * Class InformationAdminElementsComposer
  */
-class UserComposer
+class InformationAdminElementsComposer
 {
     /** @var Guard */
     protected $guard;
