@@ -21,11 +21,11 @@
                 <div class="panel-body">
                     <form method="post" action="{{ route('comment.storePost') }}">
                         {{ csrf_field() }}
-                        <input type="hidden" name="entry_id" value="{{ $entry->id }}">
+                        <input type="hidden" name="entry_id" value="{{{ $entry->id }}}">
                         <div class="form-group col-md-4">
                             <label class="control-label" for="name">名前</label>
                             <input type="text" class="form-control" id="name" name="name"
-                                placeholder="名前" value="{{ old('name') }}">
+                                placeholder="名前" value="{{{ old('name') }}}">
                         </div>
                         <div class="form-group col-md-8 @if($errors->first('comment'))has-error @endif">
                             <label class="control-label" for="entry_id">コメント {{ $errors->first('comment') }}</label>
