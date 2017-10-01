@@ -8,7 +8,7 @@
                 <div class="panel-heading">ブログエントリ</div>
                 @include('elements.admin.information')
                 <div class="panel-body">
-                    <form method="post" action="{{ route('admin.entry.store') }}">
+                    <form method="post" action="{{ route('admin.entry.storePost') }}">
                         {{ csrf_field() }}
                         <div class="form-group @if($errors->first('title'))has-error @endif">
                             <label class="control-label" for="name">タイトル {{ $errors->first('title') }}</label>

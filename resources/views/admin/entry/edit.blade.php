@@ -8,7 +8,7 @@
                 <div class="panel-heading">ブログエントリ</div>
                 @include('elements.admin.information')
                 <div class="panel-body">
-                    <form method="POST" action="{{ route('admin.entry.update', [$id]) }}">
+                    <form method="POST" action="{{ route('admin.entry.updatePost', [$id]) }}">
                         {{ method_field('put') }}
                         {{ csrf_field() }}
                         <div class="form-group @if($errors->first('title'))has-error @endif">
