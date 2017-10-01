@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('', function () {
     return view('welcome');
-});
+})->name('root');
 
 Route::get('home', 'HomeController@index')->name('home');
 
@@ -26,13 +26,16 @@ Route::post('register', 'Auth\RegisterController@register')->name('registerPost'
 
 Route::get('entry', 'EntryController@index')->name('entry');
 Route::get('entry/index', 'EntryController@index')->name('entry.index');
-Route::get('entry/view/{id}', 'EntryController@view')->name('entry.view');
+Route::get('entry/view/{id}', 'EntryController@view')->name('entry.view')->where('id', '[0-9]+');
 
-Route::post('comment', 'CommentController@store')->name('comment.storePost');
+Route::post('comment', 'CommentController@store')->name('commentPost');
 
-Route::get('admin/entry', 'Admin\EntryController@index')->name('admin.entry');
-Route::get('admin/entry/index', 'Admin\EntryController@index')->name('admin.entry.index');
-Route::get('admin/entry/create', 'Admin\EntryController@create')->name('admin.entry.create');
-Route::post('admin/entry/store', 'Admin\EntryController@store')->name('admin.entry.storePost');
-Route::get('admin/entry/edit/{id}', 'Admin\EntryController@edit')->name('admin.entry.edit');
-Route::put('admin/entry/update/{id}', 'Admin\EntryController@update')->name('admin.entry.updatePost')->middleware('self.entry');
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.'], function () {
+    Route::get('', 'EntryController@index')->name('root');
+    Route::get('entry', 'EntryController@index')->name('entry');
+    Route::get('entry/index', 'EntryController@index')->name('entry.index');
+    Route::get('entry/create', 'EntryController@create')->name('entry.create');
+    Route::post('entry/store', 'EntryController@store')->name('entry.storePost');
+    Route::get('entry/edit/{id}', 'EntryController@edit')->name('entry.edit')->where('id', '[0-9]+');
+    Route::put('entry/update/{id}', 'EntryController@update')->name('entry.updatePost')->where('id', '[0-9]+')->middleware('self.entry');
+});
