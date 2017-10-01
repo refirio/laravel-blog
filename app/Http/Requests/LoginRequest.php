@@ -35,9 +35,6 @@ class LoginRequest extends FormRequest
      * @return array
      */
     public function attributes() {
-        return [
-            'email' => 'メールアドレス',
-            'password' => 'パスワード',
-        ];
+        return [];
     }
 }

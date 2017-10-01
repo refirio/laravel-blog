@@ -35,9 +35,6 @@ class CommentStoreRequest extends FormRequest
      * @return array
      */
     public function attributes() {
-        return [
-            'name' => '名前',
-            'comment' => 'コメント',
-        ];
+        return [];
     }
 }

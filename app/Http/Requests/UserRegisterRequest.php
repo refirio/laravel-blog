@@ -36,10 +36,6 @@ class UserRegisterRequest extends FormRequest
      * @return array
      */
     public function attributes() {
-        return [
-            'name' => '名前',
-            'email' => 'メールアドレス',
-            'password' => 'パスワード',
-        ];
+        return [];
     }
 }

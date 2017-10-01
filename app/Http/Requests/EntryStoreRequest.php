@@ -36,7 +36,6 @@ class EntryStoreRequest extends FormRequest
      */
     public function attributes() {
         return [
-            'title' => 'タイトル',
             'body' => '本文',
         ];
     }
