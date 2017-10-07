@@ -19,6 +19,14 @@ class Entry extends Model
     ];
 
     /**
+     * @return mixed
+     */
+    public function tags()
+    {
+        return $this->belongsToMany('App\DataAccess\Eloquent\Tag');
+    }
+
+    /**
      * @param $limit
      *
      * @return mixed
