@@ -16,6 +16,7 @@
 
                     <p>ログインしています。</p>
                     <ul>
+                        <li><a href="{{ route('entry') }}">ブログ</a></li>
                         <li><a href="{{ route('admin.entry') }}">ブログ管理</a></li>
                     </ul>
                 </div>
