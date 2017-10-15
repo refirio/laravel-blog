@@ -33,7 +33,9 @@ class EntryService
      */
     public function postEntry(array $attributes)
     {
-        return $this->entry->save($attributes);
+        if ($this->getEntryAbility($attributes['id'])) {
+            return $this->entry->save($attributes);
+        }
     }
 
     /**
