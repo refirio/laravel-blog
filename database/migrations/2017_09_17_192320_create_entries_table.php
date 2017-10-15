@@ -21,7 +21,9 @@ class CreateEntriesTable extends Migration
             $table->text('body')->comment('本文');
             $table->timestamps();
         });
-        DB::statement('ALTER TABLE entries COMMENT \'記事\'');
+        if (!app()->runningUnitTests()) {
+            DB::statement('ALTER TABLE entries COMMENT \'記事\'');
+        }
     }
 
     /**

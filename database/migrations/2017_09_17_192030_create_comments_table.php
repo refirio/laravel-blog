@@ -21,7 +21,9 @@ class CreateCommentsTable extends Migration
             $table->text('comment')->comment('コメント');
             $table->timestamps();
         });
-        DB::statement('ALTER TABLE comments COMMENT \'コメント\'');
+        if (!app()->runningUnitTests()) {
+            DB::statement('ALTER TABLE comments COMMENT \'コメント\'');
+        }
     }
 
     /**

@@ -22,7 +22,9 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
-        DB::statement('ALTER TABLE users COMMENT \'ユーザ\'');
+        if (!app()->runningUnitTests()) {
+            DB::statement('ALTER TABLE users COMMENT \'ユーザ\'');
+        }
     }
 
     /**
