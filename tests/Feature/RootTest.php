@@ -7,14 +7,14 @@ use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class ExampleTest extends TestCase
+class RootTest extends TestCase
 {
     /**
-     * A basic test example.
+     * トップページへのアクセスをテスト
      *
      * @return void
      */
-    public function testBasicTest()
+    public function testVisitRootPage()
     {
         $response = $this->get('/');
 
